@@ -1,6 +1,7 @@
 import {Ng2StateDeclaration} from 'ui-router-ng2';
 import {TwoComponent} from './two.component';
 import {setTimeout} from 'timers';
+import {twoRouteResolver} from './two.route.resolver';
 export let TWO_STATES: Ng2StateDeclaration[] = [
   {
     name: 'two',
@@ -13,15 +14,7 @@ export let TWO_STATES: Ng2StateDeclaration[] = [
       {
         token: 'two',
         deps: [],
-        resolveFn: () => {
-          return new Promise(resolve => {
-            setTimeout(() => {
-              console.log('%cchecking', 'color:red;');
-              console.log('resolving');
-              resolve();
-            }, 1000);
-          });
-        }
+        resolveFn: twoRouteResolver
       }
     ]
   }
